@@ -20,7 +20,9 @@ config_load_balancer() {
 
 main() {
     minikube_start
+    kubectl create -f ./srcs/deployment.yaml
     config_load_balancer
+    kubectl create -f ./srcs/services.yaml
     echo "IP of minikube is : $MINIKUBE_IP"
 }
 
