@@ -8,4 +8,4 @@ TO set up the cluster just go to ft_services/ directory and  do `$ ./setup.sh` (
 
 ## Available features
 
-* WIP
+* Nginx with http
