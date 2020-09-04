@@ -34,6 +34,7 @@ create_k8s_object() {
 
 main() {
     minikube_start
+    docker build -t nginx_alpine ./srcs/nginx/
     config_load_balancer
     create_k8s_object "nginx" "create"
     echo "IP of minikube is : $MINIKUBE_IP"
