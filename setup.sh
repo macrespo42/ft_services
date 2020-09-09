@@ -44,6 +44,7 @@ main() {
     build_images
     config_load_balancer
     create_k8s_object "nginx" "create"
+    create_k8s_object "ftps" "create"
     echo "IP of minikube is : $MINIKUBE_IP"
 }
 

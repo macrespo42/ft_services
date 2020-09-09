@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ftps
+  labels:
+    app: ftps
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ftps
+  template:
+    metadata:
+      labels:
+        app: ftps
+    spec:
+      containers:
+      - name: ftps
+        image: ftps_alpine
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 20
+          name: ftp
+        - containerPort: 21
+          name: ftps
+        - containerPort: 32099
+          name: pasv-min
+        - containerPort: 32100
+          name: pasv-max
