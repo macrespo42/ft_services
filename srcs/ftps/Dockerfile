@@ -5,8 +5,8 @@ LABEL maintainer="macrespo <macrespo@student.42.fr>"
 RUN apk update --no-cache \
     && apk add vsftpd openssl --no-cache
 
-COPY ./srcs/vsftpd.conf /etc/vsftpd.conf
-COPY ./srcs/start.sh /start.sh
+COPY ./conf/vsftpd.conf /etc/vsftpd.conf
+COPY ./conf/start.sh /start.sh
 
 RUN chmod +x /start.sh
 
