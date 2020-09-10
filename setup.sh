@@ -7,17 +7,21 @@ minikube_init() {
     minikube addons enable dashboard >> /dev/null
     minikube addons enable metallb
     eval $(minikube docker-env)
-    MINIKUBE_IP="$(kubectl get node -o=custom-columns='DATA:status.addresses[0].address' | sed -n 2p)"
+    MINIKUBE_IP="$(kubectl get node -o=custom-columns='DATA:status.addresses[0].address' | sed -n 2p | sed 's/.$//')"
     # sudo usermod -aG docker $(whoami)
 }
 
 config_load_balancer() {
-    kubectl apply -f ./srcs/metallb_config.yaml
+    metallb_config_file="./srcs/metallb_config.yaml"
+    sed -i "s/#MINIKUBE_IP/$MINIKUBE_IP/g" $metallb_config_file
+    kubectl apply -f $metallb_config_file
+    # reset conf file for next use
+    sed -i "s/$MINIKUBE_IP/#MINIKUBE_IP/g" $metallb_config_file
 }
 
 build_images() {
-    docker build -t nginx_alpine ./srcs/nginx/
-    docker build -t ftps_alpine ./srcs/ftps/
+    docker build -t nginx_alpine ./srcs/nginx/ >> /dev/null
+    docker build -t ftps_alpine ./srcs/ftps/ >> /dev/null
 }
 
 create_k8s_object() {
