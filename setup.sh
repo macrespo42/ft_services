@@ -12,17 +12,12 @@ minikube_init() {
 }
 
 config_load_balancer() {
-    sed -i "s/#MINIKUBE_IP/$MINIKUBE_IP/g" ./srcs/metallb_config.yaml
     kubectl apply -f ./srcs/metallb_config.yaml
-    # reset config for next use
-    sed -i "s/$MINIKUBE_IP/#MINIKUBE_IP/g" ./srcs/metallb_config.yaml
 }
 
 build_images() {
     docker build -t nginx_alpine ./srcs/nginx/
-    sed -i "s/#MINIKUBE_IP/$MINIKUBE_IP/g" ./srcs/ftps/conf/vsftpd.conf
     docker build -t ftps_alpine ./srcs/ftps/
-    sed -i "s/$MINIKUBE_IP/#MINIKUBE_IP/g" ./srcs/ftps/conf/vsftpd.conf
 }
 
 create_k8s_object() {
@@ -45,7 +40,6 @@ main() {
     config_load_balancer
     create_k8s_object "nginx" "create"
     create_k8s_object "ftps" "create"
-    echo "IP of minikube is : $MINIKUBE_IP"
 }
 
 main
