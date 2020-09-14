@@ -1,15 +1,12 @@
-FROM alpine:3.11.3
+FROM alpine:3.12.0
 
 LABEL maintainer="macrespo <macrespo@student.42.fr>"
 
-RUN apk update --no-cache \
-    && apk add vsftpd openssl --no-cache
+RUN apk update --no-cache && \
+	apk add vsftpd
 
-COPY ./conf/vsftpd.conf /etc/vsftpd.conf
-COPY ./conf/start.sh /start.sh
+COPY ./conf/vsftpd.conf /etc/vsftpd/vsftpd.conf
 
-RUN chmod +x /start.sh
+EXPOSE 21
 
-EXPOSE 20 21 32099 32100
-
-CMD [ "./start.sh" ]
+CMD ["/usr/sbin/vsftpd",  "/etc/vsftpd/vsftpd.conf"]
