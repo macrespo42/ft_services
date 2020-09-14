@@ -4,18 +4,10 @@ metadata:
   name: ftps
 spec:
   ports:
-  - port: 20
-    targetPort: 20
     name: ftp
   - port: 21
     targetPort: 21
     name: ftps
-  - port: 32099
-    targetPort: 32099
-    name: pasv-min
-  - port: 32100
-    targetPort: 32100
-    name: pasv-max
   selector:
     app: ftps
   type: LoadBalancer 
