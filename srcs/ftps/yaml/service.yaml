@@ -4,7 +4,6 @@ metadata:
   name: ftps
 spec:
   ports:
-    name: ftp
   - port: 21
     targetPort: 21
     name: ftps
