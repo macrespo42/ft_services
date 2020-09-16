@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -ex
 
 minikube_init() {
     minikube start  --vm-driver=docker \
