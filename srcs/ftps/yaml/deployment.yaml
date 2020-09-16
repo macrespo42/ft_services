@@ -18,6 +18,11 @@ spec:
       - name: ftps
         image: ftps_alpine
         imagePullPolicy: Never
+        env:
+        - name: FTPS_USER
+          value: admin
+        - name: FTPS_PASSWORD
+          value: truc
         ports:
         - containerPort: 21
           name: ftps
