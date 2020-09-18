@@ -1,11 +1,12 @@
 #!/bin/bash -ex
 
 minikube_init() {
-    minikube start  --vm-driver=docker \
+    minikube start  --driver=docker \
                     --cpus=2
     minikube addons enable metrics-server
     minikube addons enable dashboard >> /dev/null
-    minikube addons enable metallb
+   # minikube addons enable metallb
+    kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.8.1/manifests/metallb.yaml
     eval $(minikube docker-env)
     MINIKUBE_IP="$(kubectl get node -o=custom-columns='DATA:status.addresses[0].address' | sed -n 2p | sed 's/.$//')"
     # sudo usermod -aG docker $(whoami)
