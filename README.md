@@ -8,5 +8,5 @@ TO set up the cluster just go to ft_services/ directory and  do `$ ./setup.sh` (
 
 ## Available features
 
-* Nginx with http on 172.17.0.3
+* Nginx with https (http redirected to https) 172.17.0.3
 * FTPS (admin:truc) on 172.17.0.4

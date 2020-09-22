@@ -9,4 +9,4 @@ data:
     - name: default
       protocol: layer2
       addresses:
-      - #MINIKUBE_IP3-#MINIKUBE_IP5
+      - 172.17.0.3-172.17.0.5
