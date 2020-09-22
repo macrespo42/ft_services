@@ -10,11 +10,15 @@ if [ ! -d /var/lib/mysql/mysql ]; then
     echo "[i] init mysql db"
     /usr/bin/mysql_install_db --user=mysql
     chown -R mysql /var/lib/mysql
-fi
+    exec /usr/bin/mysqld --user=mysql &
+    echo "[i] wait 5 sec"
+    sleep 5
+    echo "[i] CREATE DATABASE WORDPRESS"
 
-echo "CREATE DATABASE wordpress;" | mysql -u root
-echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost' IDENTIFIED BY 'wordpress password';" | mysql -u root
-echo "FLUSH PRIVILEGES;" | mysql -u root
-echo "EXIT;" | mysql -u root
+    echo "CREATE DATABASE wordpress;" | mysql -u root
+    echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost' IDENTIFIED BY 'wordpress password';" | mysql -u root
+    echo "FLUSH PRIVILEGES;" | mysql -u root
+    echo "EXIT" | mysql -u root
+fi
 
 exec /usr/bin/mysqld --user=mysql --console
