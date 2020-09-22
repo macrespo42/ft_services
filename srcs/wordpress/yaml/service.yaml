@@ -7,7 +7,9 @@ metadata:
 spec:
   loadBalancerIP: 172.17.0.5
   ports:
-    - port: 80
+    - port: 5050
+      targetPort: 80
+      name: wp-server
   selector:
     app: wordpress
     tier: frontend
