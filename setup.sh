@@ -16,10 +16,7 @@ minikube_init() {
 
 config_load_balancer() {
     metallb_config_file="./srcs/metallb_config.yaml"
-    sed -i "s/#MINIKUBE_IP/$MINIKUBE_IP/g" $metallb_config_file
     kubectl apply -f $metallb_config_file
-    # reset conf file for next use
-    sed -i "s/$MINIKUBE_IP/#MINIKUBE_IP/g" $metallb_config_file
 }
 
 build_images() {
