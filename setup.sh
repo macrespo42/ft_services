@@ -25,7 +25,7 @@ build_images() {
 }
 
 create_k8s_object() {
-    files=("deployment" "service")
+    files=("volume" "service" "deployment")
     path_yaml="./srcs/$1/yaml"
     for item in ${files[*]}; do
         if [ -e ${path_yaml}/${item}.yaml ]; then
@@ -45,6 +45,8 @@ main() {
     config_load_balancer
     create_k8s_object "nginx" "create"
     create_k8s_object "ftps" "create"
+    create_k8s_object "wordpress" "create"
+    create_k8s_object "mysql" "create"
 }
 
 main
