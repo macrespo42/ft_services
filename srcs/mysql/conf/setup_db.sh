@@ -19,6 +19,8 @@ if [ ! -d /var/lib/mysql/mysql ]; then
     echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost' IDENTIFIED BY 'wordpress password';" | mysql -u root
     echo "FLUSH PRIVILEGES;" | mysql -u root
     echo "EXIT" | mysql -u root
+
+    pkill mysql
 fi
 
 exec /usr/bin/mysqld --user=mysql --console
