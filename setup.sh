@@ -22,6 +22,8 @@ config_load_balancer() {
 build_images() {
     docker build -t nginx_alpine ./srcs/nginx/ >> /dev/null
     docker build -t ftps_alpine ./srcs/ftps/ >> /dev/null
+    docker build -t wordpress_alpine ./srcs/wordpress/
+    docker build -t mysql_alpine ./srcs/mysql/
 }
 
 create_k8s_object() {

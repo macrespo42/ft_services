@@ -16,7 +16,7 @@ if [ ! -d /var/lib/mysql/mysql ]; then
     echo "[i] CREATE DATABASE WORDPRESS"
 
     echo "CREATE DATABASE wordpress;" | mysql -u root
-    echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost' IDENTIFIED BY 'wordpress password';" | mysql -u root
+    echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost' IDENTIFIED BY 'admin';" | mysql -u root
     echo "FLUSH PRIVILEGES;" | mysql -u root
     echo "EXIT" | mysql -u root
 

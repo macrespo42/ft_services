@@ -15,7 +15,9 @@ RUN apk update --no-cache \
     && tar -xf /latest.tar.gz -C /var/www/localhost/htdocs/ \
     && rm /latest.tar.gz \
     && chmod 755 /var/www/localhost/htdocs/ \
-    && mv /var/www/localhost/htdocs/wordpress/* /var/www/localhost/htdocs/ 
+    && mv /var/www/localhost/htdocs/wordpress/* /var/www/localhost/htdocs/
+
+COPY ./conf/wp-config.php /var/www/localhost/htdocs/wp-config.php
 
 EXPOSE 80
 
