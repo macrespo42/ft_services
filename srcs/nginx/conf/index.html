@@ -2,9 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>HTML5</title>
+    <title>FT_SERVICES</title>
 </head>
 <body>
-    <p>nginx is running !</p>
+    <header>
+        <h1>FT_SERVICES</h1>
+        <div>
+            <div class="green_circle"></div>
+            <h2>Index of services :</h2>
+        </div>
+    </header>
+    <section>
+        <div class="svc_card">
+            <h2>Nginx web server</h2>
+            <p>nginx is a web server, you are actually on a website powered by nginx !</p>
+            <p>You are already on it ! service ip : <a href="172.17.0.3">172.17.0.3</a>, and if you try <a href="http://172.17.0.3">http://172.17.0.3</a> you are redirected to https ;)</p>
+        </div>
+        <div class="svc_card">
+            <h2>FTPS server</h2>
+            <p>FTP is a protocol used for transfer file on a server to use it you need to donwload a ftp client like <a href="https://filezilla-project.org/">filezilla</a></p>
+            <p>To test this service go to ftp client. IP are <strong>172.17.0.4</strong> and user : admin, password : truc</p>
+        </div>
+        <div class="svc_card">
+            <h2>Wordpress</h2>
+            <p>Wordpress is a famous cms written in php, you can create blog, e-commerce and more with it !</p>
+            <p>This service is available at : <a href="172.17.0.5:5050">172.17.0.5:5050</a></p>
+        </div>
+        <div class="svc_card">
+            <h2>Php my admin</h2>
+            <p>Php my admin is a tool to view database in a web browser</p>
+            <p>This service is available at : <a href="172.17.0.6:5000">172.17.0.6:5000</a> user: root, password: admin</p>
+        </div>
+        <div class="svc_card">
+            <h2>Grafana</h2>
+            <p>Grafana is a tool to monitor pods etc... in a k8s cluster</p>
+            <p>This service is available at : <a href="172.17.0.7:3000">172.17.0.7:4000</a> user: root, password: admin</p>
+        </div>
+    </section>
 </body>
 </html>
