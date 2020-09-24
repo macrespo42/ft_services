@@ -26,7 +26,7 @@ define( 'DB_NAME', 'wordpress' );
 define( 'DB_USER', 'root' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'admin' );
+define( 'DB_PASSWORD', 'root' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'wordpress-mysql' );
@@ -48,7 +48,7 @@ define( 'DB_COLLATE', '' );
  */
 define('AUTH_KEY',         '*#WvMsXkj]|<5#3}<Wk}2]@U4R3|kX|094-a.p|4i&N-7Bm$h8w8<9Y$8(kmJtw!');
 define('SECURE_AUTH_KEY',  'I3C:+*:?R&15hvBT{Ni[Ie};NqfNHRU5=-;MQ%:<_I4@+2Hr|37O/A/EJ&KwVd y');
-define('LOGGED_IN_KEY',    'L3w#|{0$k=wuT*.&<gD4P)7|MM<+tI$,z3WNf))6{]oKyeg8Ll+vo0*<P!.7I]=R');
+define('LOGGED_IN_KEY',    'mysql_alpineL3w#|{0$k=wuT*.&<gD4P)7|MM<+tI$,z3WNf))6{]oKyeg8Ll+vo0*<P!.7I]=R');
 define('NONCE_KEY',        'n |++y9L`rt6#TEgdl+h#GZ/9%8U0UgA5j|NP{M4^-2]gJ(${GD]U?E|}W/3TM`i');
 define('AUTH_SALT',        '=>#h;:MWp[G=p$Yfc#9Z{j,oFakPAw&7-4:Ic7Wah#*>FdvH)*+kV^5vuIjgGoR#');
 define('SECURE_AUTH_SALT', '2 qjJdbE~~QJ+a$1U!`Y@8iYXWm_f-Rm4#gwj>tlYX-r-rFr%.$P3[?nh3~dAcC5');

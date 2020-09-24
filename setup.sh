@@ -20,10 +20,10 @@ config_load_balancer() {
 }
 
 build_images() {
-    docker build -t nginx_alpine ./srcs/nginx/ >> /dev/null
+    # docker build -t nginx_alpine ./srcs/nginx/ >> /dev/null
     # docker build -t ftps_alpine ./srcs/ftps/ >> /dev/null
-    # docker build -t wordpress_alpine ./srcs/wordpress/
-    # docker build -t mysql_alpine ./srcs/mysql/
+    docker build -t wordpress_alpine ./srcs/wordpress/ >> /dev/null
+    docker build -t mysql_alpine ./srcs/mysql/
 }
 
 create_k8s_object() {
@@ -45,10 +45,10 @@ main() {
     minikube_init
     build_images
     config_load_balancer
-    create_k8s_object "nginx" "create"
+    # create_k8s_object "nginx" "create"
     # create_k8s_object "ftps" "create"
-    # create_k8s_object "wordpress" "create"
-    # create_k8s_object "mysql" "create"
+    create_k8s_object "wordpress" "create"
+    create_k8s_object "mysql" "create"
 }
 
 main

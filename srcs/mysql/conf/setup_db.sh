@@ -16,11 +16,11 @@ if [ ! -d /var/lib/mysql/mysql ]; then
     echo "[i] CREATE DATABASE WORDPRESS"
 
     echo "CREATE DATABASE wordpress;" | mysql -u root
-    echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost' IDENTIFIED BY 'admin';" | mysql -u root
+    echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;" | mysql -u root
     echo "FLUSH PRIVILEGES;" | mysql -u root
     echo "EXIT" | mysql -u root
 
-    pkill mysql
+    pkill mysqld
 fi
 
 exec /usr/bin/mysqld --user=mysql --console
