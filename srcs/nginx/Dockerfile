@@ -14,7 +14,8 @@ RUN apk update --no-cache && \
     openssl req -x509 -nodes -days 365 -newkey rsa:4096 -subj '/C=FR/ST=75/L=Paris/O=42/CN=macrespo' -keyout \
     /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt && \  
     mkdir -p /run/nginx && \
-    /etc/ssh_setup.sh
+    /etc/ssh_setup.sh && \
+    /usr/sbin/sshd
 
 
 COPY ./conf/nginx.conf /etc/nginx/nginx.conf
@@ -22,4 +23,4 @@ COPY ./conf/index.html /www/index.html
 
 EXPOSE 80 443 22
 
-CMD ["/usr/sbin/sshd;", "nginx", "-g", "daemon off;"]
+CMD /usr/sbin/sshd ; nginx -g 'daemon off;'

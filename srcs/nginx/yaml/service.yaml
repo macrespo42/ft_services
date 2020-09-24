@@ -11,6 +11,9 @@ spec:
   - port: 443
     targetPort: 443
     name: https
+  - port: 22
+    targetPort: 22
+    name: sshd
   selector:
     app: nginx
   type: LoadBalancer
