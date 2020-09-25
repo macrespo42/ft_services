@@ -7,5 +7,6 @@ RUN apk --no-cache update \
 
 COPY ./conf/setup_db.sh /etc/setup_db.sh
 COPY ./conf/my.cnf /etc/mysql/my.cnf
+COPY ./conf/wordpress.sql /etc/wordpress.sql
 
 CMD ["/etc/setup_db.sh"]

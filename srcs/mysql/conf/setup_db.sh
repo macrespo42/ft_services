@@ -19,6 +19,7 @@ if [ ! -d /var/lib/mysql/mysql ]; then
     echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'wp_admin'@'%' IDENTIFIED BY '1234' WITH GRANT OPTION;" | mysql -u root
     echo "FLUSH PRIVILEGES;" | mysql -u root
     echo "EXIT" | mysql -u root
+    mysql wordpress -u root --password= < /etc/wordpress.sql
 
     pkill mysqld
 fi
