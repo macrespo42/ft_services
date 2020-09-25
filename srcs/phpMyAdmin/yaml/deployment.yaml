@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-my-admin
+  labels:
+    app: php-my-admin
+spec:
+  selector:
+    matchLabels:
+      app: php-my-admin
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: php-my-admin
+    spec:
+      containers:
+      - image: php_my_admin_alpine
+        name: php-my-admin
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+          name: php-my-admin

@@ -16,9 +16,11 @@ RUN apk update --no-cache \
     && rm -f /etc/phpMyAdmin-4.9.5-all-languages.tar.gz \
     && chmod 755 /var/www/localhost/htdocs/ \
     && mv /var/www/localhost/htdocs/phpMyAdmin-4.9.5-all-languages /var/www/localhost/htdocs/phpMyAdmin \
-    && mv /var/www/localhost/htdocs/phpMyAdmin/* /var/www/localhost/htdocs/
+    && mv /var/www/localhost/htdocs/phpMyAdmin/* /var/www/localhost/htdocs/ \
+    && rm -rf /var/www/localhost/htdocs/phpmyadmin/ \
+    && rm -f /var/www/localhost/htdocs/config.sample.inc.php
 
-COPY ./conf/config.inc.php /var/www/localhost/htdocs/config.inc.php
+# COPY ./conf/config.inc.php /var/www/localhost/htdocs/config.inc.php
 
 EXPOSE 80 5000
 

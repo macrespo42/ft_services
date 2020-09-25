@@ -24,9 +24,10 @@ build_images() {
     # docker build -t ftps_alpine ./srcs/ftps/ >> /dev/null
     docker build -t wordpress_alpine ./srcs/wordpress/ >> /dev/null
     docker build -t mysql_alpine ./srcs/mysql/
+    docker build -t php_my_admin_alpine ./srcs/phpMyAdmin/
 }
 
-create_k8s_object() {
+toogle_k8s_object() {
     files=("volume" "service" "deployment")
     path_yaml="./srcs/$1/yaml"
     for item in ${files[*]}; do
@@ -45,10 +46,11 @@ main() {
     minikube_init
     build_images
     config_load_balancer
-    # create_k8s_object "nginx" "create"
-    # create_k8s_object "ftps" "create"
-    create_k8s_object "wordpress" "create"
-    create_k8s_object "mysql" "create"
+    # toogle_k8s_object "nginx" "create"
+    # toogle_k8s_object "ftps" "create"
+    toogle_k8s_object "wordpress" "create"
+    toogle_k8s_object "mysql" "create"
+    toogle_k8s_object "phpMyAdmin" "create"
 }
 
 main

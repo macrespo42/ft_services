@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: php-my-admin
+  labels:
+    app: php-my-admin
+spec:
+  loadBalancerIP: 172.17.0.6
+  ports:
+    - port: 5000
+      targetPort: 80
+      name: php-my-admin-server
+  selector:
+    app: php-my-admin
+  type: LoadBalancer
