@@ -9,4 +9,6 @@ COPY ./conf/setup_db.sh /etc/setup_db.sh
 COPY ./conf/my.cnf /etc/mysql/my.cnf
 COPY ./conf/wordpress.sql /etc/wordpress.sql
 
+EXPOSE 3306
+
 CMD ["/etc/setup_db.sh"]
