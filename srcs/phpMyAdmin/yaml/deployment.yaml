@@ -5,6 +5,7 @@ metadata:
   labels:
     app: php-my-admin
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: php-my-admin
