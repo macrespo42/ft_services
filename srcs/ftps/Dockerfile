@@ -1,4 +1,4 @@
-FROM alpine:3.11.3
+FROM alpine:3.12.0
 
 LABEL maintainer="macrespo <macrespo@student.42.fr>"
 
