@@ -1,10 +1,7 @@
 #!/bin/bash -ex
 
-vm_setup() {
-    sudo usermod -aG docker user42; newgrp docker
-}
-
 minikube_init() {
+    minikube delete
     minikube start  --driver=docker \
                     --cpus=2
     minikube addons enable metrics-server
@@ -42,7 +39,6 @@ toogle_k8s_object() {
 }
 
 main() {
-    # vm_init
     minikube_init
     build_images
     config_load_balancer
