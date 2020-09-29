@@ -27,3 +27,9 @@ spec:
           name: https
         - containerPort: 22
           name: sshd
+        livenessProbe:
+          exec:
+            command:
+              - pgrep sshd
+          initialDelaySeconds: 20
+          periodSeconds: 5
