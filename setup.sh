@@ -21,6 +21,7 @@ build_images() {
     docker build -t wordpress_alpine ./srcs/wordpress/ >> /dev/null
     docker build -t mysql_alpine ./srcs/mysql/ >> /dev/null
     docker build -t php_my_admin_alpine ./srcs/phpMyAdmin/ >> /dev/null
+    docker build -t grafana_alpine ./srcs/grafana/
 }
 
 toogle_k8s_object() {
@@ -46,6 +47,7 @@ main() {
     toogle_k8s_object "wordpress" "create"
     toogle_k8s_object "mysql" "create"
     toogle_k8s_object "phpMyAdmin" "create"
+    toogle_k8s_object "grafana" "create"
 }
 
 main
