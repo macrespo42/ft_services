@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: influxdb
   labels:
-    app: grafana
+    app: influxdb
 spec:
   ports:
     - port: 8806
   selector:
-    app: grafana
+    app: influxdb
     tier: influxdb
   clusterIP: None
