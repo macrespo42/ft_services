@@ -5,6 +5,7 @@ LABEL maintainer="macrespo <macrespo@student.42.fr>"
 COPY ./conf/ssh_setup.sh /etc/ssh_setup.sh
 
 RUN apk update --no-cache && \
+    apk add telegraf --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache && \
     apk add nginx openssl openssh --no-cache && \
     adduser -D 'www' wwww && \
     mkdir /www && \
@@ -20,7 +21,9 @@ RUN apk update --no-cache && \
 
 COPY ./conf/nginx.conf /etc/nginx/nginx.conf
 COPY ./conf/index.html /www/index.html
+COPY ./conf/entrypoint.sh /etc/entrypoint.sh
+COPY ./conf/telegraf.conf /etc/telegraf/telegraf.conf
 
 EXPOSE 80 443 22
 
-CMD /usr/sbin/sshd ; nginx -g 'daemon off;'
+CMD ["/etc/entrypoint.sh"]

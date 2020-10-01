@@ -12,6 +12,6 @@ RUN apk add --update --no-cache libc6-compat curl \
  	&& cp /home/influxdb-1.8.2-1/usr/bin/influx /bin/influx
 
 
-EXPOSE 8806
+EXPOSE 8086
 
 CMD ["/etc/start.sh"]
