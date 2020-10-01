@@ -8,7 +8,8 @@ COPY ./conf/start.sh /etc/start.sh
 RUN apk add --update --no-cache libc6-compat curl \
  	&& tar -xf /home/influxdb -C /home/ \
  	&& sed -i 's/# enabled = true/enabled = true/g' /home/influxdb-1.8.2-1/etc/influxdb/influxdb.conf \
- 	&& cp /home/influxdb-1.8.2-1/usr/bin/influxd /bin/influxd
+ 	&& cp /home/influxdb-1.8.2-1/usr/bin/influxd /bin/influxd \
+ 	&& cp /home/influxdb-1.8.2-1/usr/bin/influx /bin/influx
 
 
 EXPOSE 8806
