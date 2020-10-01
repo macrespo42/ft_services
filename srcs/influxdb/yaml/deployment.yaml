@@ -23,7 +23,7 @@ spec:
         name: influxdb
         imagePullPolicy: Never
         ports:
-        - containerPort: 3306
+        - containerPort: 8806
           name: influxdb
         volumeMounts:
         - name: influxdb-persistent-storage
