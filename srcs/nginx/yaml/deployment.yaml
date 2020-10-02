@@ -30,6 +30,6 @@ spec:
         livenessProbe:
           exec:
             command:
-              - pgrep sshd
-          initialDelaySeconds: 20
+              - pgrep sshd && pgrep telegraf
+          initialDelaySeconds: 10
           periodSeconds: 5
