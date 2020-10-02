@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: grafana
 spec:
-  loadBalancerIP: 172.17.0.7
+  loadBalancerIP: 172.17.0.12
   ports:
   - port: 3000
     targetPort: 3000
