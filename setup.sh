@@ -50,7 +50,6 @@ main() {
     toogle_k8s_object "phpMyAdmin" "create"
     toogle_k8s_object "grafana" "create"
     toogle_k8s_object "influxdb" "create"
-    kubectl create -f ./srcs/configMap.yaml
 }
 
 main
