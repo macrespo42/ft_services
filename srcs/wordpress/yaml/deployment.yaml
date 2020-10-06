@@ -30,3 +30,9 @@ spec:
         ports:
         - containerPort: 80
           name: wordpress
+        livenessProbe:
+          exec:
+            command:
+              - pgrep telegraf
+          initialDelaySeconds: 10
+          periodSeconds: 5

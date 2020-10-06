@@ -23,3 +23,9 @@ spec:
         ports:
         - containerPort: 3000
           name: grafana-serv
+        livenessProbe:
+          exec:
+            command:
+              - pgrep telegraf
+          initialDelaySeconds: 10
+          periodSeconds: 5

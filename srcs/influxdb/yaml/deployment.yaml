@@ -25,6 +25,12 @@ spec:
         ports:
         - containerPort: 8086
           name: influxdb
+        livenessProbe:
+          exec:
+            command:
+              - pgrep telegraf
+          initialDelaySeconds: 10
+          periodSeconds: 5
         volumeMounts:
         - name: influxdb-persistent-storage
           mountPath: /home/influxdb-1.8.2-1/var/lib/influxdb

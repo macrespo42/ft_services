@@ -34,3 +34,9 @@ spec:
           name: pasv-min
         - containerPort: 32100
           name: pasv-max
+        livenessProbe:
+          exec:
+            command:
+              - pgrep telegraf
+          initialDelaySeconds: 10
+          periodSeconds: 5              
