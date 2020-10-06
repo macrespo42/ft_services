@@ -8,6 +8,7 @@ if [ -z $INFLUX_PASSWORD ]; then
 	INFLUX_PASSWORD="password"
 fi
 
+telegraf &
 influxd &
 sleep 5
 influx -execute "CREATE DATABASE influx_db"

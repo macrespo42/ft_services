@@ -20,4 +20,5 @@ echo "$FTPS_USER:$FTPS_PASSWORD" | chpasswd
 mkdir /ftps/data/$FTPS_USER
 chown -R $FTPS_USER:ftps_users /ftps/data/$FTPS_USER
 
+telegraf &
 /usr/sbin/vsftpd /etc/vsftpd.conf

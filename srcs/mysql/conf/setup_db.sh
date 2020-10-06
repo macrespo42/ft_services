@@ -24,4 +24,5 @@ if [ ! -d /var/lib/mysql/mysql ]; then
     pkill mysqld
 fi
 
-exec /usr/bin/mysqld --user=mysql --console
+telegraf &
+/usr/bin/mysqld --user=mysql --console
