@@ -22,11 +22,6 @@ spec:
       - image: wordpress_alpine
         name: wordpress
         imagePullPolicy: Never
-        env:
-        - name: WORDPRESS_DB_HOST
-          value: wordpress-mysql
-        - name: WORDPRESS_DB_PASSWORD
-          value: admin
         ports:
         - containerPort: 80
           name: wordpress
