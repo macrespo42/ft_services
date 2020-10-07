@@ -28,7 +28,9 @@ spec:
         livenessProbe:
           exec:
             command:
-              - pgrep telegraf
+              - /bin/ash
+              - -c
+              - 'pgrep telegraf'
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql

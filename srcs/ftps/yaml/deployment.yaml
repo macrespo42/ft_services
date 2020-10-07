@@ -37,6 +37,8 @@ spec:
         livenessProbe:
           exec:
             command:
-              - pgrep telegraf
+              - /bin/ash
+              - -c
+              - 'pgrep telegraf'
           initialDelaySeconds: 10
           periodSeconds: 5              
