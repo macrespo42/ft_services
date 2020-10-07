@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: ftps
 spec:
-  loadBalancerIP: 172.17.0.4
+  loadBalancerIP: 172.17.0.8
   ports:
   - port: 20
     targetPort: 20
