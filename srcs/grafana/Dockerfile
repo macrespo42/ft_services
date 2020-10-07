@@ -6,6 +6,7 @@ ADD https://dl.grafana.com/oss/release/grafana-7.2.0.linux-amd64.tar.gz /home/gr
 
 RUN apk update && apk add --no-cache --upgrade bash \
 	&& apk add telegraf --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache \
+	&& mkdir -p /etc/telegraf \
 	&& apk add --no-cache libc6-compat \
 	&& tar -xf /home/grafana -C /home/
 

@@ -4,6 +4,7 @@ LABEL maintainer="macrespo <macrespo@student.42.fr>"
 
 RUN apk --no-cache update \
     && apk add telegraf --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache \
+    && mkdir -p /etc/telegraf \
     && apk --no-cache add mysql mysql-client
 
 COPY ./conf/setup_db.sh /etc/setup_db.sh

@@ -4,6 +4,7 @@ LABEL maintainer="macrespo <macrespo@student.42.fr>"
 
 RUN apk update --no-cache && \
     apk add telegraf --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache && \
+    && mkdir -p /etc/telegraf \
     apk add nginx openssl openssh --no-cache && \
     adduser -D 'www' wwww && \
     mkdir /www && \
