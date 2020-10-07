@@ -3,7 +3,7 @@ FROM alpine:3.12.0
 LABEL maintainer="macrespo <macrespo@student.42.fr>"
 
 RUN apk update --no-cache && \
-    apk add telegraf --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache && \
+    apk add telegraf --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache && \
     apk add nginx openssl openssh --no-cache && \
     adduser -D 'www' wwww && \
     mkdir /www && \
