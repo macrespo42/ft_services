@@ -1,0 +1,42 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: influxdb
+  labels:
+    app: influxdb
+spec:
+  # replicas: 2
+  selector:
+    matchLabels:
+      app: influxdb
+      tier: influxdb
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: influxdb
+        tier: influxdb
+    spec:
+      containers:
+      - image: influxdb_alpine
+        name: influxdb
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8086
+          name: influxdb
+        livenessProbe:
+          exec:
+            command:
+              - /bin/ash
+              - -c
+              - 'pgrep telegraf'
+          initialDelaySeconds: 10
+          periodSeconds: 5
+        volumeMounts:
+        - name: influxdb-persistent-storage
+          mountPath: /home/influxdb-1.8.2-1/var/lib/influxdb
+      volumes:
+      - name: influxdb-persistent-storage
+        persistentVolumeClaim:
+          claimName: influxdb-pv-claim
