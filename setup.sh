@@ -17,13 +17,13 @@ config_load_balancer() {
 }
 
 build_images() {
-    # docker build -t nginx_alpine ./srcs/nginx/ >> /dev/null
+    docker build -t nginx_alpine ./srcs/nginx/ >> /dev/null
     docker build -t ftps_alpine ./srcs/ftps/ >> /dev/null
-    # docker build -t wordpress_alpine ./srcs/wordpress/ >> /dev/null
-    # docker build -t mysql_alpine ./srcs/mysql/
-    # docker build -t php_my_admin_alpine ./srcs/phpMyAdmin/
-    # docker build -t influxdb_alpine ./srcs/influxdb/
-    # docker build -t grafana_alpine ./srcs/grafana/
+    docker build -t wordpress_alpine ./srcs/wordpress/ >> /dev/null
+    docker build -t mysql_alpine ./srcs/mysql/
+    docker build -t php_my_admin_alpine ./srcs/phpMyAdmin/
+    docker build -t influxdb_alpine ./srcs/influxdb/
+    docker build -t grafana_alpine ./srcs/grafana/
 }
 
 toogle_k8s_object() {
@@ -44,13 +44,13 @@ main() {
     minikube_init
     build_images
     config_load_balancer
-    # toogle_k8s_object "nginx" "create"
+    toogle_k8s_object "nginx" "create"
     toogle_k8s_object "ftps" "create"
-    # toogle_k8s_object "wordpress" "create"
-    # toogle_k8s_object "mysql" "create"
-    # toogle_k8s_object "phpMyAdmin" "create"
-    # toogle_k8s_object "influxdb" "create"
-    # toogle_k8s_object "grafana" "create"
+    toogle_k8s_object "wordpress" "create"
+    toogle_k8s_object "mysql" "create"
+    toogle_k8s_object "phpMyAdmin" "create"
+    toogle_k8s_object "influxdb" "create"
+    toogle_k8s_object "grafana" "create"
 }
 
 main
