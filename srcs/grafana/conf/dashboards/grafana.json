@@ -1,40 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_INFLUXDB",
-      "label": "InfluxDB",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "influxdb",
-      "pluginName": "InfluxDB"
-    }
-  ],
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "7.2.0"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph",
-      "version": ""
-    },
-    {
-      "type": "datasource",
-      "id": "influxdb",
-      "name": "InfluxDB",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "singlestat",
-      "name": "Singlestat",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -52,13 +16,13 @@
   "editable": true,
   "gnetId": 5955,
   "graphTooltip": 1,
-  "id": null,
-  "iteration": 1602087224300,
+  "id": 2,
+  "iteration": 1602196475670,
   "links": [],
   "panels": [
     {
       "collapsed": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -79,7 +43,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -196,7 +160,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "decimals": null,
       "fieldConfig": {
         "defaults": {
@@ -314,7 +278,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -431,7 +395,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "decimals": null,
       "fieldConfig": {
         "defaults": {
@@ -549,7 +513,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "decimals": null,
       "fieldConfig": {
         "defaults": {
@@ -667,7 +631,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "decimals": null,
       "fieldConfig": {
         "defaults": {
@@ -785,7 +749,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "decimals": 2,
       "fieldConfig": {
         "defaults": {
@@ -903,7 +867,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "decimals": 0,
       "fieldConfig": {
         "defaults": {
@@ -1021,7 +985,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "decimals": 0,
       "fieldConfig": {
         "defaults": {
@@ -1132,7 +1096,7 @@
     },
     {
       "collapsed": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1149,7 +1113,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "editable": true,
       "error": false,
       "fieldConfig": {
@@ -1295,7 +1259,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "editable": true,
       "error": false,
       "fieldConfig": {
@@ -1437,7 +1401,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "editable": true,
       "error": false,
       "fieldConfig": {
@@ -1574,7 +1538,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "editable": true,
       "error": false,
       "fieldConfig": {
@@ -1723,7 +1687,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "editable": true,
       "error": false,
       "fieldConfig": {
@@ -1865,7 +1829,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "editable": true,
       "error": false,
       "fieldConfig": {
@@ -2004,7 +1968,7 @@
     },
     {
       "collapsed": true,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -2021,7 +1985,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "editable": true,
       "error": false,
       "fieldConfig": {
@@ -2163,7 +2127,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "editable": true,
       "error": false,
       "fieldConfig": {
@@ -2316,7 +2280,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "editable": true,
       "error": false,
       "fieldConfig": {
@@ -2518,7 +2482,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "editable": true,
       "error": false,
       "fieldConfig": {
@@ -2671,7 +2635,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "editable": true,
       "error": false,
       "fieldConfig": {
@@ -2873,7 +2837,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "editable": true,
       "error": false,
       "fieldConfig": {
@@ -3015,7 +2979,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "editable": true,
       "error": false,
       "fieldConfig": {
@@ -3214,7 +3178,7 @@
     },
     {
       "collapsed": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "influxdb",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3240,8 +3204,8 @@
         "allFormat": "glob",
         "current": {
           "selected": false,
-          "text": "InfluxDB",
-          "value": "InfluxDB"
+          "text": "influxdb",
+          "value": "influxdb"
         },
         "datasource": "InfluxDB",
         "hide": 0,
@@ -3258,8 +3222,17 @@
       },
       {
         "allValue": null,
-        "current": {},
-        "datasource": "${DS_INFLUXDB}",
+        "current": {
+          "selected": true,
+          "tags": [],
+          "text": [
+            "grafana-bcf595c7b-4w2dp"
+          ],
+          "value": [
+            "grafana-bcf595c7b-4w2dp"
+          ]
+        },
+        "datasource": "influxdb",
         "definition": "",
         "hide": 0,
         "includeAll": false,
@@ -3392,7 +3365,11 @@
       },
       {
         "allValue": null,
-        "current": {},
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
         "datasource": "$datasource",
         "definition": "",
         "hide": 0,
@@ -3414,7 +3391,11 @@
       },
       {
         "allValue": null,
-        "current": {},
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
         "datasource": "$datasource",
         "definition": "",
         "hide": 0,
@@ -3436,7 +3417,11 @@
       },
       {
         "allValue": null,
-        "current": {},
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
         "datasource": "$datasource",
         "definition": "",
         "hide": 0,
@@ -3488,7 +3473,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "influxdb",
-  "uid": "WrvEYG5Gk",
+  "title": "Grafana",
+  "uid": "wb59jI5Gk",
   "version": 2
 }
