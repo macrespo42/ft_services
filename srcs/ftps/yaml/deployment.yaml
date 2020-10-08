@@ -5,7 +5,7 @@ metadata:
   labels:
     app: ftps
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: ftps
@@ -18,17 +18,11 @@ spec:
       - name: ftps
         image: ftps_alpine
         imagePullPolicy: Never
-        env:
-        - name: FTPS_USER
-          value: admin
-        - name: FTPS_PASSWORD
-          value: truc
-        ports:
-        - containerPort: 21
-          name: ftps
-        - containerPort: 20
-          name: ftp
-        - containerPort: 32099
-          name: pasv-min
-        - containerPort: 32100
-          name: pasv-max
+        livenessProbe:
+          exec:
+            command:
+            - /bin/ash
+            - -c
+            - 'pgrep telegraf'
+          initialDelaySeconds: 10
+          periodSeconds: 5
