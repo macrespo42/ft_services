@@ -21,6 +21,12 @@ spec:
       - image: wordpress_alpine
         name: wordpress
         imagePullPolicy: Never
+        livenessProbe:
+          exec:
+            command:
+            - /bin/ash
+            - -c
+            - 'pgrep telegraf'
         env:
         - name: WORDPRESS_DB_HOST
           value: wordpress-mysql
