@@ -21,9 +21,12 @@ spec:
       - image: mysql_alpine
         name: mysql
         imagePullPolicy: Never
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: admin
+        livenessProbe:
+          exec:
+            command:
+              - /bin/ash
+              - -c
+              - 'pgrep telegraf'
         ports:
         - containerPort: 3306
           name: mysql
