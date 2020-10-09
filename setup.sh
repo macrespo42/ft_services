@@ -19,10 +19,10 @@ build_images() {
     docker build -t nginx_alpine ./srcs/nginx/ >> /dev/null
     docker build -t ftps_alpine ./srcs/ftps/ >> /dev/null
     docker build -t wordpress_alpine ./srcs/wordpress/ >> /dev/null
-    docker build -t mysql_alpine ./srcs/mysql/
-    docker build -t php_my_admin_alpine ./srcs/phpMyAdmin/
-    docker build -t influxdb_alpine ./srcs/influxdb/
-    docker build -t grafana_alpine ./srcs/grafana/
+    docker build -t mysql_alpine ./srcs/mysql/ >> /dev/null
+    docker build -t php_my_admin_alpine ./srcs/phpMyAdmin/ >> /dev/null
+    docker build -t influxdb_alpine ./srcs/influxdb/ >> /dev/null
+    docker build -t grafana_alpine ./srcs/grafana/ >> /dev/null
 }
 
 toogle_k8s_object() {
@@ -41,6 +41,7 @@ toogle_k8s_object() {
 
 main() {
     minikube_init
+    build_images
     config_load_balancer
     toogle_k8s_object "nginx" "create"
     toogle_k8s_object "ftps" "create"
