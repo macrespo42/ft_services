@@ -1,7 +1,7 @@
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
-  name: wordpress-mysql
+  name: mysql
   labels:
     app: wordpress
 spec:
@@ -31,12 +31,6 @@ spec:
         ports:
         - containerPort: 3306
           name: mysql
-        livenessProbe:
-          exec:
-            command:
-              - /bin/ash
-              - -c
-              - 'pgrep telegraf'
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
