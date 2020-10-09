@@ -15,7 +15,7 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 4,
+    "id": 7,
     "links": [],
     "panels": [
       {
@@ -101,7 +101,7 @@
               {
                 "key": "host",
                 "operator": "=",
-                "value": "influxdb-7b5668dd65-n9l88"
+                "value": "wordpress-mysql-fdb84d59b-v2qrs"
               }
             ]
           }
@@ -192,7 +192,7 @@
               {
                 "key": "host",
                 "operator": "=",
-                "value": "influxdb-7b5668dd65-n9l88"
+                "value": "wordpress-mysql-fdb84d59b-v2qrs"
               }
             ]
           }
@@ -287,7 +287,7 @@
               {
                 "key": "host",
                 "operator": "=",
-                "value": "influxdb-7b5668dd65-n9l88"
+                "value": "wordpress-mysql-fdb84d59b-v2qrs"
               }
             ]
           },
@@ -329,7 +329,7 @@
               {
                 "key": "host",
                 "operator": "=",
-                "value": "influxdb-7b5668dd65-n9l88"
+                "value": "wordpress-mysql-fdb84d59b-v2qrs"
               }
             ]
           }
@@ -460,7 +460,7 @@
               {
                 "key": "host",
                 "operator": "=",
-                "value": "influxdb-7b5668dd65-n9l88"
+                "value": "wordpress-mysql-fdb84d59b-v2qrs"
               }
             ]
           },
@@ -502,7 +502,7 @@
               {
                 "key": "host",
                 "operator": "=",
-                "value": "influxdb-7b5668dd65-n9l88"
+                "value": "wordpress-mysql-fdb84d59b-v2qrs"
               }
             ]
           }
@@ -562,7 +562,7 @@
     },
     "timepicker": {},
     "timezone": "",
-    "title": "influxdb",
-    "uid": "gs29hD5Gz",
+    "title": "Mysql",
+    "uid": "k6fDTD5Mk",
     "version": 1
   }

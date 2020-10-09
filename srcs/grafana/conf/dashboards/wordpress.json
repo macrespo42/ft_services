@@ -15,14 +15,29 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 4,
+    "id": 8,
     "links": [],
     "panels": [
       {
+        "cards": {
+          "cardPadding": null,
+          "cardRound": null
+        },
+        "color": {
+          "cardColor": "#b4ff00",
+          "colorScale": "sqrt",
+          "colorScheme": "interpolateOranges",
+          "exponent": 0.5,
+          "mode": "spectrum"
+        },
+        "dataFormat": "timeseries",
         "datasource": "influxdb",
         "fieldConfig": {
           "defaults": {
-            "custom": {},
+            "custom": {
+              "align": null,
+              "filterable": false
+            },
             "mappings": [],
             "thresholds": {
               "mode": "absolute",
@@ -41,27 +56,20 @@
           "overrides": []
         },
         "gridPos": {
-          "h": 6,
-          "w": 5,
+          "h": 16,
+          "w": 12,
           "x": 0,
           "y": 0
         },
-        "id": 8,
-        "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "reduceOptions": {
-            "calcs": [
-              "mean"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "textMode": "auto"
+        "heatmap": {},
+        "hideZeroBuckets": false,
+        "highlightCards": true,
+        "id": 4,
+        "legend": {
+          "show": false
         },
-        "pluginVersion": "7.2.0",
+        "pluginVersion": "7.1.0",
+        "reverseYBuckets": false,
         "targets": [
           {
             "groupBy": [
@@ -78,7 +86,7 @@
                 "type": "fill"
               }
             ],
-            "measurement": "cpu",
+            "measurement": "mem",
             "orderByTime": "ASC",
             "policy": "default",
             "refId": "A",
@@ -87,7 +95,7 @@
               [
                 {
                   "params": [
-                    "usage_system"
+                    "active"
                   ],
                   "type": "field"
                 },
@@ -101,15 +109,36 @@
               {
                 "key": "host",
                 "operator": "=",
-                "value": "influxdb-7b5668dd65-n9l88"
+                "value": "wordpress-86f44b8db7-v8vzg"
               }
             ]
           }
         ],
         "timeFrom": null,
         "timeShift": null,
-        "title": "mem sys usage",
-        "type": "stat"
+        "title": "Active memory",
+        "tooltip": {
+          "show": true,
+          "showHistogram": false
+        },
+        "type": "heatmap",
+        "xAxis": {
+          "show": true
+        },
+        "xBucketNumber": null,
+        "xBucketSize": null,
+        "yAxis": {
+          "decimals": null,
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true,
+          "splitFactor": null
+        },
+        "yBucketBound": "auto",
+        "yBucketNumber": null,
+        "yBucketSize": null
       },
       {
         "datasource": "influxdb",
@@ -134,13 +163,16 @@
           "overrides": []
         },
         "gridPos": {
-          "h": 6,
-          "w": 4,
-          "x": 5,
+          "h": 4,
+          "w": 7,
+          "x": 12,
           "y": 0
         },
-        "id": 6,
+        "id": 8,
         "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
           "orientation": "auto",
           "reduceOptions": {
             "calcs": [
@@ -149,8 +181,7 @@
             "fields": "",
             "values": false
           },
-          "showThresholdLabels": false,
-          "showThresholdMarkers": true
+          "textMode": "auto"
         },
         "pluginVersion": "7.2.0",
         "targets": [
@@ -192,7 +223,7 @@
               {
                 "key": "host",
                 "operator": "=",
-                "value": "influxdb-7b5668dd65-n9l88"
+                "value": "wordpress-86f44b8db7-v8vzg"
               }
             ]
           }
@@ -200,6 +231,97 @@
         "timeFrom": null,
         "timeShift": null,
         "title": "Uptime",
+        "type": "stat"
+      },
+      {
+        "datasource": "influxdb",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {},
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 5,
+          "x": 19,
+          "y": 0
+        },
+        "id": 2,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "7.2.0",
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "cpu",
+            "orderByTime": "ASC",
+            "policy": "default",
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "usage_system"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "mean"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "host",
+                "operator": "=",
+                "value": "wordpress-86f44b8db7-v8vzg"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Memory used",
         "type": "gauge"
       },
       {
@@ -217,13 +339,13 @@
         "fill": 1,
         "fillGradient": 0,
         "gridPos": {
-          "h": 6,
-          "w": 15,
-          "x": 9,
-          "y": 0
+          "h": 12,
+          "w": 12,
+          "x": 12,
+          "y": 4
         },
         "hiddenSeries": false,
-        "id": 4,
+        "id": 6,
         "legend": {
           "avg": false,
           "current": false,
@@ -287,49 +409,7 @@
               {
                 "key": "host",
                 "operator": "=",
-                "value": "influxdb-7b5668dd65-n9l88"
-              }
-            ]
-          },
-          {
-            "groupBy": [
-              {
-                "params": [
-                  "$__interval"
-                ],
-                "type": "time"
-              },
-              {
-                "params": [
-                  "null"
-                ],
-                "type": "fill"
-              }
-            ],
-            "measurement": "processes",
-            "orderByTime": "ASC",
-            "policy": "default",
-            "refId": "B",
-            "resultFormat": "time_series",
-            "select": [
-              [
-                {
-                  "params": [
-                    "total_threads"
-                  ],
-                  "type": "field"
-                },
-                {
-                  "params": [],
-                  "type": "mean"
-                }
-              ]
-            ],
-            "tags": [
-              {
-                "key": "host",
-                "operator": "=",
-                "value": "influxdb-7b5668dd65-n9l88"
+                "value": "wordpress-86f44b8db7-v8vzg"
               }
             ]
           }
@@ -338,180 +418,7 @@
         "timeFrom": null,
         "timeRegions": [],
         "timeShift": null,
-        "title": "Processes",
-        "tooltip": {
-          "shared": true,
-          "sort": 0,
-          "value_type": "individual"
-        },
-        "type": "graph",
-        "xaxis": {
-          "buckets": null,
-          "mode": "time",
-          "name": null,
-          "show": true,
-          "values": []
-        },
-        "yaxes": [
-          {
-            "format": "short",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": null,
-            "show": true
-          },
-          {
-            "format": "short",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": null,
-            "show": true
-          }
-        ],
-        "yaxis": {
-          "align": false,
-          "alignLevel": null
-        }
-      },
-      {
-        "aliasColors": {},
-        "bars": false,
-        "dashLength": 10,
-        "dashes": false,
-        "datasource": "influxdb",
-        "fieldConfig": {
-          "defaults": {
-            "custom": {}
-          },
-          "overrides": []
-        },
-        "fill": 1,
-        "fillGradient": 0,
-        "gridPos": {
-          "h": 8,
-          "w": 24,
-          "x": 0,
-          "y": 6
-        },
-        "hiddenSeries": false,
-        "id": 2,
-        "legend": {
-          "avg": false,
-          "current": false,
-          "max": false,
-          "min": false,
-          "show": true,
-          "total": false,
-          "values": false
-        },
-        "lines": true,
-        "linewidth": 1,
-        "nullPointMode": "null",
-        "options": {
-          "alertThreshold": true
-        },
-        "percentage": false,
-        "pluginVersion": "7.2.0",
-        "pointradius": 2,
-        "points": false,
-        "renderer": "flot",
-        "seriesOverrides": [],
-        "spaceLength": 10,
-        "stack": false,
-        "steppedLine": false,
-        "targets": [
-          {
-            "groupBy": [
-              {
-                "params": [
-                  "$__interval"
-                ],
-                "type": "time"
-              },
-              {
-                "params": [
-                  "null"
-                ],
-                "type": "fill"
-              }
-            ],
-            "measurement": "mem",
-            "orderByTime": "ASC",
-            "policy": "default",
-            "refId": "A",
-            "resultFormat": "time_series",
-            "select": [
-              [
-                {
-                  "params": [
-                    "used"
-                  ],
-                  "type": "field"
-                },
-                {
-                  "params": [],
-                  "type": "mean"
-                }
-              ]
-            ],
-            "tags": [
-              {
-                "key": "host",
-                "operator": "=",
-                "value": "influxdb-7b5668dd65-n9l88"
-              }
-            ]
-          },
-          {
-            "groupBy": [
-              {
-                "params": [
-                  "$__interval"
-                ],
-                "type": "time"
-              },
-              {
-                "params": [
-                  "null"
-                ],
-                "type": "fill"
-              }
-            ],
-            "measurement": "mem",
-            "orderByTime": "ASC",
-            "policy": "default",
-            "refId": "B",
-            "resultFormat": "time_series",
-            "select": [
-              [
-                {
-                  "params": [
-                    "total"
-                  ],
-                  "type": "field"
-                },
-                {
-                  "params": [],
-                  "type": "mean"
-                }
-              ]
-            ],
-            "tags": [
-              {
-                "key": "host",
-                "operator": "=",
-                "value": "influxdb-7b5668dd65-n9l88"
-              }
-            ]
-          }
-        ],
-        "thresholds": [],
-        "timeFrom": null,
-        "timeRegions": [],
-        "timeShift": null,
-        "title": "Memory",
+        "title": "Processes total",
         "tooltip": {
           "shared": true,
           "sort": 0,
@@ -549,7 +456,6 @@
         }
       }
     ],
-    "refresh": false,
     "schemaVersion": 26,
     "style": "dark",
     "tags": [],
@@ -557,12 +463,12 @@
       "list": []
     },
     "time": {
-      "from": "2020-10-09T11:41:11.612Z",
-      "to": "2020-10-09T12:39:50.857Z"
+      "from": "now-6h",
+      "to": "now"
     },
     "timepicker": {},
     "timezone": "",
-    "title": "influxdb",
-    "uid": "gs29hD5Gz",
-    "version": 1
+    "title": "Wordpress",
+    "uid": "UAAKov5Mz",
+    "version": 2
   }
