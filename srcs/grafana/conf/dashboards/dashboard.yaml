@@ -8,4 +8,4 @@ providers:
   disableDeletion: false
   editable: true
   options:
-    path: /home/grafana-7.2.0/conf/provisioning/dashboards/
+    path: /home/grafana-7.2.0/conf/provisioning/dashboards

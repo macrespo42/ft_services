@@ -3233,7 +3233,7 @@
           "options": [],
           "query": "SHOW TAG VALUES FROM system WITH KEY=host",
           "refresh": 1,
-          "regex": "/grafana*/",
+          "regex": "/php-my-admin*/",
           "skipUrlSync": false,
           "sort": 0,
           "tagValuesQuery": "",
@@ -3464,8 +3464,8 @@
       ]
     },
     "timezone": "browser",
-    "title": "Grafana",
-    "uid": "wb59jI5G3",
+    "title": "Php-my-admin",
+    "uid": "wb59jI5G5",
     "version": 1
   }
   
