@@ -5,6 +5,8 @@ LABEL maintainer="macrespo <macrespo@student.42.fr>"
 ADD http://wordpress.org/latest.tar.gz /latest.tar.gz
 
 RUN apk update --no-cache \
+    && apk add telegraf --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache \
+    && mkdir -p /etc/telegraf \
     && apk add --no-cache lighttpd lighttpd php7-common php7-iconv php7-json php7-gd php7-curl php7-xml php7-mysqli php7-imap php7-cgi fcgi php7-pdo php7-pdo_mysql php7-soap php7-xmlrpc php7-posix php7-mcrypt php7-gettext php7-ldap php7-ctype php7-dom \
     && mkdir -p /var/run/lighttpd \
     && touch /var/run/lighttpd/php-fastcgi.socket \
@@ -18,7 +20,9 @@ RUN apk update --no-cache \
     && mv /var/www/localhost/htdocs/wordpress/* /var/www/localhost/htdocs/
 
 COPY ./conf/wp-config.php /var/www/localhost/htdocs/wp-config.php
+COPY ./conf/telegraf.conf /etc/telegraf/telegraf.conf
+COPY ./conf/entrypoint.sh /etc/entrypoint.sh
 
 EXPOSE 80
 
-CMD ["lighttpd", "-D", "-f", "/etc/lighttpd/lighttpd.conf"]
+CMD ["/etc/entrypoint.sh"]

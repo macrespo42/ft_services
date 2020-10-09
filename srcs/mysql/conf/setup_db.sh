@@ -25,4 +25,4 @@ if [ ! -d /var/lib/mysql/mysql ]; then
 fi
 
 telegraf &
-/usr/bin/mysqld --user=mysql --console
+exec /usr/bin/mysqld --user=mysql --console

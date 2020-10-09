@@ -1,18 +1,16 @@
 FROM alpine:3.12.0
 
-LABEL maintainer="macrespo <macrespo@student.42.fr>"
+RUN apk --no-cache add vsftpd openssl
 
-RUN apk update --no-cache \
-    && apk add telegraf --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache \
-    && mkdir -p /etc/telegraf \
-    && apk add vsftpd openssl --no-cache
+RUN apk add telegraf --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache
 
-COPY ./conf/vsftpd.conf /etc/vsftpd.conf
-COPY ./conf/start.sh /start.sh
-COPY ./conf/telegraf.conf /etc/telegraf/telegraf.conf
+RUN yes "" | openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.key -out /etc/ssl/certs/vsftpd.crt
 
-RUN chmod +x /start.sh
+COPY ./srcs/vsftpd.conf /etc/vsftpd/vsftpd.conf
+COPY ./srcs/start.sh /bin/start.sh
+RUN mkdir -p /etc/telegraf
+COPY ./srcs/telegraf.conf /etc/telegraf/telegraf.conf
 
-EXPOSE 20 21 32099 32100
+EXPOSE 21 31000
 
-CMD [ "./start.sh" ]
+ENTRYPOINT ["/bin/start.sh"]

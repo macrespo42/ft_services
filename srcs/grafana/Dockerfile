@@ -14,5 +14,9 @@ EXPOSE 3000
 
 COPY ./conf/entrypoint.sh /etc/entrypoint.sh
 COPY ./conf/telegraf.conf /etc/telegraf/telegraf.conf
+COPY ./conf/datasources.yaml /home/grafana-7.2.0/conf/provisioning/datasources/
+COPY ./conf/dashboards/ /home/grafana-7.2.0/conf/provisioning/dashboards
+COPY ./conf/dashboard.yaml /home/grafana-7.2.0/conf/provisioning/dashboards/
+COPY ./conf/grafana.db /home/grafana-7.2.0/data/
 
 CMD ["/etc/entrypoint.sh"]

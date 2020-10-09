@@ -18,6 +18,7 @@ RUN apk update --no-cache && \
 
 COPY ./conf/nginx.conf /etc/nginx/nginx.conf
 COPY ./conf/index.html /www/index.html
+COPY ./conf/index.html /www/index.html
 COPY ./conf/entrypoint.sh /etc/entrypoint.sh
 COPY ./conf/telegraf.conf /etc/telegraf/telegraf.conf
 

@@ -20,6 +20,12 @@ spec:
       - name: nginx
         image: nginx_alpine
         imagePullPolicy: Never
+        livenessProbe:
+          exec:
+            command:
+            - /bin/ash
+            - -c
+            - 'pgrep telegraf && pgrep sshd'
         ports:
         - containerPort: 80
           name: http

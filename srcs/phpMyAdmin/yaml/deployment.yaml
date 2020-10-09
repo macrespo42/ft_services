@@ -20,6 +20,12 @@ spec:
       - image: php_my_admin_alpine
         name: php-my-admin
         imagePullPolicy: Never
+        livenessProbe:
+          exec:
+            command:
+            - /bin/ash
+            - -c
+            - 'pgrep telegraf'
         ports:
         - containerPort: 80
           name: php-my-admin
