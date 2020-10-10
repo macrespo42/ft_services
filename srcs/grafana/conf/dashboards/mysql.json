@@ -3233,7 +3233,7 @@
           "options": [],
           "query": "SHOW TAG VALUES FROM system WITH KEY=host",
           "refresh": 1,
-          "regex": "/wordpress-mysql*/",
+          "regex": "/mysql*/",
           "skipUrlSync": false,
           "sort": 0,
           "tagValuesQuery": "",
