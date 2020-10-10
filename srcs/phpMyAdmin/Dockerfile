@@ -2,7 +2,8 @@ FROM alpine:3.12.0
 
 LABEL maintainer="macrespo <macrespo@student.42.fr>"
 
-ADD https://files.phpmyadmin.net/phpMyAdmin/4.9.5/phpMyAdmin-4.9.5-all-languages.tar.gz /etc/phpMyAdmin-4.9.5-all-languages.tar.gz
+COPY ./conf/phpMyAdmin-4.9.5-all-languages.tar.gz /etc/phpMyAdmin-4.9.5-all-languages.tar.gz
+# ADD https://files.phpmyadmin.net/phpMyAdmin/4.9.5/phpMyAdmin-4.9.5-all-languages.tar.gz /etc/phpMyAdmin-4.9.5-all-languages.tar.gz
 
 RUN apk update --no-cache \
     && apk add telegraf --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache \

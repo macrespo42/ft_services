@@ -2,7 +2,8 @@ FROM alpine:3.12.0
 
 LABEL maintainer="macrespo <macrespo@student.42.fr>"
 
-ADD http://wordpress.org/latest.tar.gz /latest.tar.gz
+COPY ./conf/latest.tar.gz /latest.tar.gz
+# ADD http://wordpress.org/latest.tar.gz /latest.tar.gz
 
 RUN apk update --no-cache \
     && apk add telegraf --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache \
