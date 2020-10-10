@@ -40,6 +40,7 @@ toogle_k8s_object() {
 }
 
 correction_infos() {
+    sleep 4
     kubectl get services
     cat ./srcs/passwd
 }
