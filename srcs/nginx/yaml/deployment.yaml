@@ -32,12 +32,4 @@ spec:
         - containerPort: 443
           name: https
         - containerPort: 22
-          name: sshd
-        livenessProbe:
-          exec:
-            command:
-              - /bin/ash
-              - -c
-              - 'pgrep sshd && pgrep telegraf'
-          initialDelaySeconds: 10
-          periodSeconds: 5
+          name: ssh

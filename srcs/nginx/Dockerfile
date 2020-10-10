@@ -24,4 +24,4 @@ COPY ./conf/telegraf.conf /etc/telegraf/telegraf.conf
 
 EXPOSE 80 443 22
 
-CMD ["/etc/entrypoint.sh"]
+CMD /etc/entrypoint.sh
