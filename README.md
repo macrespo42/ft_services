@@ -8,6 +8,8 @@ TO set up the cluster just go to ft_services/ directory and  do `$ ./setup.sh` (
 
 ## Available features
 
-* Nginx with https (http redirected to https) 172.17.0.3
-* FTPS (admin:truc) on 172.17.0.4
-* Wordpress on 172.17.0.5:5050
+* Nginx with https (http redirected to https) 172.17.0.7 and ssh access $(ssh admin@172.17.0.7)
+* FTPS (admin:admin) on 172.17.0.8
+* Wordpress on 172.17.0.11:5050
+* Php my admin on 172.17.0.10:5000 (wp_admin:1234)
+* Grafana on 172.17.0.12:3000 (admin:admin)
