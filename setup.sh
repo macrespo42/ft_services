@@ -39,6 +39,11 @@ toogle_k8s_object() {
     done
 }
 
+correction_infos() {
+    kubectl get services
+    cat ./srcs/passwd
+}
+
 main() {
     minikube_init
     build_images
@@ -50,6 +55,7 @@ main() {
     toogle_k8s_object "phpMyAdmin" "create"
     toogle_k8s_object "influxdb" "create"
     toogle_k8s_object "grafana" "create"
+    correction_infos
 }
 
 main
